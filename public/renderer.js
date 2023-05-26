@@ -1,6 +1,10 @@
 const electron = require("electron");
 const path = require("path");
 
+try {
+  require('electron-reloader')(module);
+} catch {};
+
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
@@ -15,7 +19,7 @@ function createWindow() {
   });
   // and load the index.html of the app.
   console.log(__dirname);
-  mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
+  mainWindow.loadFile(path.join(__dirname, "../dist/index.html"));
 }
 
 // This method will be called when Electron has finished
